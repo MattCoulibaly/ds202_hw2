@@ -1,0 +1,63 @@
+---
+title: "hw2"
+author: "Matthew Coulibaly"
+date: "2/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+cel = c((24-32)*(5/9), (15-32)*(5/9))
+cel
+```
+
+```{r}
+vec200 = rep(c(1, 3), 100)
+vec200
+```
+
+```{r}
+?round
+44^2
+45^2
+numPerfect = 44
+numPerfect
+```
+
+```{r}
+library(ggplot2)
+?mpg
+highway = mpg$hwy
+head(sort(highway, decreasing = TRUE))
+top3 = mpg[mpg$hwy > 40, ]
+top3
+#The 3 most fuel-efficient models in terms of highway mileage are the jetta and new beetle with a manual transmission and the new beetle with an automatic transmission.These are the only three models in the data set with a hwy mpg of above 40 making them the top three most fuel efficient models in terms of highway miles
+```
+
+```{r}
+str(mpg[mpg$class == 'compact', ])
+numCompact = 47
+numCompact
+# There are 47 different compact models in this data set.
+```
+
+
+```{r}
+plot(mpg$hwy, mpg$cty)
+# The variables hwy and cty have a strong, postitive correlation.There are so few points visible because the majority of the points are stacked on top of each other resulting in it only looking like one dot on the graph when it could be 10 different models with the same cty and hwy mpg.
+```
+
+
+```{r}
+fuel2008 = mpg[mpg$year == '2008', ]
+fuel1999 = mpg[mpg$year == '1999', ]
+fuel2008$avg = (fuel2008$cty + fuel2008$hwy) / 2
+fuel1999$avg = (fuel1999$cty + fuel1999$hwy) / 2
+summary(fuel2008$avg)
+summary(fuel1999$avg)
+# The cars from 2008 are less fuel efficient than in 1999. The average mpg of both city and highway miles combined for 1999 is .14 greater than in 2008. Also, the average maximum in 1999 is 39.5 while it was 32.5 in 2008.The average minimum mpg in 1999 is 13 while it was 10.5 in 2008. In conclusion I think that cars in 2008 are not more fuel efficient than cars in 1999 because the average mpg, max mpg, and min mpg are greater in 1999 than in 2008.
+```
